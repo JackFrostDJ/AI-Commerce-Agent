@@ -1,0 +1,8 @@
+flask
+torch>=2.0.0
+torchvision
+open-clip-torch
+transformers
+nltk
+scikit-learn
+pillow

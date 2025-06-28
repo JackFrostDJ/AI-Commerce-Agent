@@ -1,0 +1,65 @@
+[
+  {
+    "id": 1,
+    "name": "Sport T-shirt (Black)",
+    "tags": ["sports", "men", "shirt", "casual", "black"],
+    "description": "A breathable sport t-shirt for men in black color",
+    "image_path": "static/images/sports_shirt.png"
+  },
+  {
+    "id": 2,
+    "name": "Yoga Pants (Gray)",
+    "tags": ["sports", "women", "pants", "gray", "casual"],
+    "description": "Comfortable yoga pants for women in gray color",
+    "image_path": "static/images/yoga_pants.png"
+  },
+  {
+    "id": 3,
+    "name": "Running Shoes (Blue)",
+    "tags": ["sports", "casual", "shoes", "unisex", "blue"],
+    "description": "Lightweight running shoes in blue color",
+    "image_path": "static/images/running_shoes.png"
+  },
+  {
+    "id": 4,
+    "name": "Trail Running Shoes (Red)",
+    "tags": ["sports", "shoes", "trail", "unisex", "red"],
+    "description": "Durable trail running shoes designed for off-road performance in red color",
+    "image_path": "static/images/trail_shoes.png"
+  },
+  {
+    "id": 5,
+    "name": "Compression Leggings (Black)",
+    "tags": ["sports", "women", "leggings", "black", "fitness"],
+    "description": "Black compression leggings for women ideal for yoga and workouts",
+    "image_path": "static/images/leggings_black.png"
+  },
+  {
+    "id": 6,
+    "name": "Slim Fit Polo Shirt (White)",
+    "tags": ["men", "shirt", "casual", "white", "polo"],
+    "description": "A stylish white slim-fit polo shirt for casual occasions",
+    "image_path": "static/images/polo_shirt_white.png"
+  },
+  {
+    "id": 7,
+    "name": "Graphic Tee (Blue)",
+    "tags": ["shirt", "casual", "unisex", "blue", "graphic"],
+    "description": "A blue graphic t-shirt for casual everyday wear",
+    "image_path": "static/images/graphic_tee_blue.png"
+  },
+  {
+    "id": 8,
+    "name": "Hiking Jacket (Olive)",
+    "tags": ["outdoor", "jacket", "unisex", "olive", "sports"],
+    "description": "Lightweight olive-colored hiking jacket suitable for all weather conditions",
+    "image_path": "static/images/hiking_jacket_olive.png"
+  },
+  {
+    "id": 9,
+    "name": "Tennis Skirt (Pink)",
+    "tags": ["sports", "women", "skirt", "pink", "tennis"],
+    "description": "A pink pleated tennis skirt for women, great for matches or training",
+    "image_path": "static/images/tennis_skirt_pink.png"
+  }
+]

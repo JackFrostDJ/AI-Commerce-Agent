@@ -1,0 +1,22 @@
+# Python environment
+backend/venv/
+__pycache__/
+*.py[cod]
+*.pyc
+
+
+# Node.js dependencies
+frontend/node_modules/
+
+# Logs and system files
+*.log
+.DS_Store
+.env
+
+# Build output (optional — Vercel/Render usually builds themselves)
+frontend/dist/
+frontend/build/
+
+# OS/IDE-specific
+.vscode/
+.idea/
