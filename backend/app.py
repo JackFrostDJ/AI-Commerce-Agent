@@ -52,14 +52,14 @@ def hybrid_search():
             label_data = classify_res.json()
             label = label_data.get("labels", ["chat"])[0].lower()
         except Exception as e:
-            print("⚠️ Classification failed, defaulting to chat. Error:", e)
+            print("Classification failed, defaulting to chat. Error:", e)
 
     # Force recommendation if image is present even if classification fails
     if "recommendation" in label or image:
         try:
             results = search_by_image(image) if image else recommend_text(query)
         except Exception as e:
-            print("⚠️ Recommendation failed:", e)
+            print("Recommendation failed:", e)
             results = []
 
         if results:
@@ -93,7 +93,7 @@ def hybrid_search():
             sentences = re.split(r'(?<=[.!?])\s+', reply)
             reply = ' '.join(s for s in sentences if s.endswith(('.', '!', '?')))
     except Exception as e:
-        print("⚠️ Chat request failed:", e)
+        print("Chat request failed:", e)
         reply = "Something went wrong. Try again later."
 
     conversation_history.append({"role": "Comma", "content": reply})
