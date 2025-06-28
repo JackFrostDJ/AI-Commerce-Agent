@@ -8,7 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from functools import lru_cache
 
-   
 @lru_cache(maxsize=1)
 def get_model():
     model, _, preprocess = open_clip.create_model_and_transforms("ViT-B-32", pretrained="laion2b_s34b_b79k")
@@ -23,6 +22,7 @@ def load_catalog():
     with open("catalog.json") as f:
         return json.load(f)
 
+@lru_cache(maxsize=1)
 def encode_embeddings():
     model, preprocess, tokenizer = get_model()
     catalog = load_catalog()
@@ -39,32 +39,28 @@ def encode_embeddings():
 
                 text_tensor = tokenizer([item.get("description", "")])
                 with torch.no_grad():
-                    image_feat = model.encode_image(img_tensor).cpu().numpy()[0].astype(np.float32)
-                    text_feat = model.encode_text(text_tensor).cpu().numpy()[0].astype(np.float32)
+                    image_feat = model.encode_image(img_tensor).cpu().numpy().astype(np.float32)[0]
+                    text_feat = model.encode_text(text_tensor).cpu().numpy().astype(np.float32)[0]
 
                 image_features.append(image_feat)
                 text_features.append(text_feat)
                 valid_catalog.append(item)
-        except:
+        except Exception:
             continue
 
     return normalize(np.stack(image_features)), normalize(np.stack(text_features)), valid_catalog
 
-@lru_cache(maxsize=1)
-def get_cached_vectors():
-    return encode_embeddings()
-
 def search_by_image(file, top_k=5, alpha=0.5):
     model, preprocess, _ = get_model()
-    image_matrix, text_matrix, valid_catalog = get_cached_vectors()
+    image_matrix, text_matrix, valid_catalog = encode_embeddings()
 
     file.stream.seek(0)
     img = Image.open(io.BytesIO(file.read())).convert("RGB")
     img_tensor = preprocess(img).unsqueeze(0)
 
     with torch.no_grad():
-        query_feat = model.encode_image(img_tensor).cpu().numpy()
-    
+        query_feat = model.encode_image(img_tensor).cpu().numpy().astype(np.float32)
+
     query_feat = normalize(query_feat)
 
     sim_img = cosine_similarity(query_feat, image_matrix)[0]
