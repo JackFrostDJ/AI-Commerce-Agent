@@ -9,7 +9,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const dropRef = useRef();
 
-  const BACKEND_URL = "https://ai-commerce-backend.onrender.com";
+  const BACKEND_URL = "https://ai-commerce-agent-wz0e.onrender.com";
 
   const handleSend = async () => {
     if (!input.trim() && !imageFile) return;
