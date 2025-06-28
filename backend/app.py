@@ -4,8 +4,10 @@ import re
 from recommender import recommend_text
 from image_search import search_by_image
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 HF_API_URL = "https://router.huggingface.co/featherless-ai/v1/chat/completions"
