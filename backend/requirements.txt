@@ -1,5 +1,5 @@
 flask
-flask_cors
+flask-cors
 torch>=2.0.0
 open-clip-torch
 nltk
