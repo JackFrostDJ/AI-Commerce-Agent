@@ -7,7 +7,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app, origins=["https://ai-commerce-agent.vercel.app/"])
+CORS(app, origins=["https://ai-commerce-agent.vercel.app"])
 
 HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 HF_API_URL = "https://router.huggingface.co/featherless-ai/v1/chat/completions"
@@ -105,7 +105,7 @@ def hybrid_search():
         "reply": reply,
         "results": []
     })
+PORT = int(os.environ.get("PORT", 10000))
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 10000))  # default to 10000 if not set
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(host="0.0.0.0", port=PORT, debug=True)
