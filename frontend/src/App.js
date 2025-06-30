@@ -101,7 +101,7 @@ function App() {
                 <div key={i} className="bg-dark border border-gold p-3 rounded-md shadow-sm">
                   {item.image_path && (
                     <img
-                      src={`/${item.image_path}`}
+                      src={`${BACKEND_URL}/${item.image_path}`}
                       alt={item.name}
                       className="w-full h-32 object-contain mb-2"
                     />
